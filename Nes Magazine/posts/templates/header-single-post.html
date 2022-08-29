@@ -1,0 +1,17 @@
+{% extends 'single-post.html' %}
+
+
+{% block single %}
+<!-- ======= Single Post Content ======= -->
+<div class="single-post">
+  <div class="post-meta"><span class="date">{{headpost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{headpost.created_at}}</span></div>
+  <h1 class="mb-5">{{headpost.title}}</h1>
+  <p><span class="firstcharacter"></span>{{headpost.prefix}}</p>
+
+  <figure class="my-4">
+    <img src="{{headpost.image.url}}" width="800" style="margin-left:80px ;" alt="No Photo" class="img-fluid">
+  </figure>
+  <p>{{headpost.body}}</p>
+</div><!-- End Single Post Content -->
+{% endblock %}
+
