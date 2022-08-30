@@ -38,7 +38,7 @@
   * License: https:///bootstrapmade.com/license/
   ======================================================== -->
 </head>
-{% block fromindex %}
+
 <body>
 
   <!-- ======= Header ======= -->
@@ -53,9 +53,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Blog</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
-          <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{% url 'index' %}">Blog</a></li>
+          <li class="dropdown"><a href="{% url 'category' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
               <li><a href="#">Drop Down 1</a></li>
@@ -75,7 +74,7 @@
           </li>
 
           <li><a href="{% url 'about-us' %}">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -103,7 +102,7 @@
   </header><!-- End Header -->
 
   <main id="main">
-
+{% block fromindex %}
     <!-- ======= Hero Slider Section ======= -->
     <section id="hero-slider" class="hero-slider">
       <div class="container-md" data-aos="fade-in">
@@ -144,9 +143,9 @@
           <div class="col-lg-4">
             <div class="post-entry-1 lg">
               {% for post in posts %}
-              <a href="{% url 'single' post.id  %}"><img src="{{post.image.url}}" alt="{% static 'media/images/No_image_available.png' %}" class="img-fluid"></a>
+              <a href="{% url 'tech-single' post.id  %}"><img src="{{post.image.url}}" alt="{% static 'media/images/No_image_available.png' %}" class="img-fluid"></a>
               <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.created_at}}</span></div>
-              <h2><a href="{% url 'single' post.id  %}">{{post.title |capfirst}}</a></h2>
+              <h2><a href="{% url 'tech-single' post.id  %}">{{post.title |capfirst}}</a></h2>
               <p class="mb-4 d-block">{{post.prefix |capfirst}}</p>
               {% endfor %}
               <div class="d-flex align-items-center author">
@@ -246,7 +245,7 @@
 
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
           <h2>Culture</h2>
-          <div><a href="category.html" class="more">See All Culture</a></div>
+          <div><a href="{% url 'category' %}" class="more">See All Culture</a></div>
         </div>
 
         <div class="row">
