@@ -6,7 +6,13 @@ from .models import *
 
 # Create your views here.
 
+
+
+
+
 def index(request):
+    
+
     
     post = Tech.objects.all()[::-1]
     posts = post[:2]
@@ -135,6 +141,18 @@ def single(request,pk):
     Header_Post_v = HeaderPost.objects.all()[::-1]
     header_post = Header_Post_v[:6]
 
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
 
     #These var stands for popular
     showbiz_post_nav = Showbiz.objects.all()[::-1]
@@ -147,11 +165,17 @@ def single(request,pk):
 
 
     context = {
-        'post':post,
+        "post":post,
         "showbiz_post_1":showbiz_post_1,
         "showbiz_post_2":showbiz_post_2,
         "sport_post":sport_post,
-
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
     }
     return render (request,'single-post.html',context)
 
@@ -161,6 +185,18 @@ def single(request,pk):
 def header_single(request,nid):
     headpost = HeaderPost.objects.get(id=nid)
 
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
 
     #These var stands for popular
     showbiz_post_nav = Showbiz.objects.all()[::-1]
@@ -172,10 +208,55 @@ def header_single(request,nid):
         'headpost':headpost,
         "showbiz_post_1":showbiz_post_1,
         "sport_post_trending":sport_post_trending,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
 
     }
     return render (request,'header-single-post.html',context)
 
+
+def tech_single(request,pin):
+    techpost = Tech.objects.get(id=pin)
+
+
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+    #These var stands for popular
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+
+    context = {
+        'techpost':techpost,
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
+
+    }
+    return render (request,'tech-single.html',context)
 
 
 
@@ -184,6 +265,18 @@ def header_single(request,nid):
 def showbiz_single(request,pin):
     showbizpost = Showbiz.objects.get(id=pin)
 
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
 
     #These var stands for popular
     showbiz_post_nav = Showbiz.objects.all()[::-1]
@@ -195,6 +288,13 @@ def showbiz_single(request,pin):
         'showbizpost':showbizpost,
         "showbiz_post_1":showbiz_post_1,
         "sport_post_trending":sport_post_trending,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
 
     }
     return render (request,'showbiz-single-post.html',context)
@@ -203,6 +303,18 @@ def showbiz_single(request,pin):
 def sport_single(request,nop):
     sportpost = Sport.objects.get(id=nop)
 
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
 
     #These var stands for popular
     showbiz_post_nav = Showbiz.objects.all()[::-1]
@@ -214,6 +326,13 @@ def sport_single(request,nop):
         'sportpost':sportpost,
         "showbiz_post_1":showbiz_post_1,
         "sport_post_trending":sport_post_trending,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
 
     }
     return render (request,'sport-single-post.html',context)
@@ -221,7 +340,18 @@ def sport_single(request,nop):
 def travel_single(request,suk):
     travelpost = Travel.objects.get(id=suk)
 
-
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
     #These var stands for popular
     showbiz_post_nav = Showbiz.objects.all()[::-1]
     showbiz_post_1 = showbiz_post_nav[:3]
@@ -232,6 +362,13 @@ def travel_single(request,suk):
         'travelpost':travelpost,
         "showbiz_post_1":showbiz_post_1,
         "sport_post_trending":sport_post_trending,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
     }
     return render (request,'travel-single-post.html',context)
 
@@ -241,11 +378,15 @@ def travel_single(request,suk):
 
 
 def about_us(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
     lastest_post = Showbiz.objects.all()[::-1]
     lastest = lastest_post[2]
     header_about = HeaderPost.objects.all()[::-1]
     header_a = header_about[0]
     context = {
+        "header_post":header_post,
         "lastest":lastest,
         "header_a":header_a
     }
@@ -253,10 +394,91 @@ def about_us(request):
 
 
 def contact(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
 
-    return render(request,'contact.html')
+    context = {
+        "header_post":header_post,
+
+    }
+    return render(request,'contact.html',context)
 
 
 def category(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+    # video_url = Video.objects.all()[::-1]
+    # video = video_url[0]
+    
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        #end nav-bar-posts
 
-    return render(request,'category.html')
+        # "video":video,
+    }
+    return render(request,'category.html',context)
+
+
+def sport_category(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+    # video_url = Video.objects.all()[::-1]
+    # video = video_url[0]
+
+    #variables for sport category templates
+    sport = HeaderPost.objects.filter(category='Sport')[::-1] 
+    sport_post_category_header = sport[:2]
+    #-----------------------
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_category = sport_post_v[:8]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "sport_post_category_header":sport_post_category_header,
+        "sport_post_category":sport_post_category,
+    }
+    return render (request,'sport-category.html',context)

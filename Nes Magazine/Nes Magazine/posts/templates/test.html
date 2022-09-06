@@ -1,10 +1,8 @@
 {% extends 'index.html' %}
 {% load static %}
 
-
 {% block fromindex %}
-{% block fromcategory %}
-<main id="main">
+  <main id="main">
     <section>
       <div class="container">
         <div class="row">
@@ -31,12 +29,12 @@
             {% for i in sport_post_category_header %}
             <div class="d-md-flex post-entry-2 half">
               <a href="single-post.html" class="me-4 thumbnail">
-                <img src="{% static 'assets/img/post-landscape-1.jpg' %}" alt="" class="img-fluid">
+                <img src="{{i.image.url}}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
                 <h3><a href="single-post.html">{{i.title}}</a></h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio placeat exercitationem magni voluptates dolore. Tenetur fugiat voluptates quas, nobis error deserunt aliquam temporibus sapiente, laudantium dolorum itaque libero eos deleniti?</p>
+                <p>{{i.body}}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="{% static 'assets/img/person-2.jpg' %}" alt="" class="img-fluid"></div>
                   <div class="name">
@@ -160,7 +158,7 @@
     </section>
   </main><!-- End #main -->
 {% endblock  %}
-{% endblock  %}
+
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 

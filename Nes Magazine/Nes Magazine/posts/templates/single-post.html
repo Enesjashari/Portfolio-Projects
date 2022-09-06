@@ -10,55 +10,14 @@
           <div class="col-md-9 post-content" data-aos="fade-up">
 
             {% block single %}
-            <!-- ======= Single Post Content ======= -->
-            <div class="single-post">
-              <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.created_at}}</span></div>
-              <h1 class="mb-5">{{post.title}}</h1>
-              <p><span class="firstcharacter"></span>{{post.prefix}}</p>
 
-              <figure class="my-4">
-                <img src="{{post.image.url}}" width="800" style="margin-left:80px ;" alt="No Photo" class="img-fluid">
-              </figure>
-              <p>{{post.body}}</p>
-            </div><!-- End Single Post Content -->
             {% endblock %}
 
           </div>
           <div class="col-md-3">
-            <!-- ======= Sidebar ======= -->
-            <div class="aside-block">
 
-              <ul class="nav nav-pills custom-tab-nav mb-4" id="pills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-popular-tab" data-bs-toggle="pill" data-bs-target="#pills-lastest" type="button" role="tab" aria-controls="pills-popular" aria-selected="true">Latest</button>
-                </li>
-
-              </ul>
-
-              <div class="tab-content" id="pills-tabContent">
-
-                <!-- Popular -->
-                  {% for i in showbiz_post_1 %}
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>{{i.created_at}}</span></div>
-                    <h2 class="mb-2"><a href="{% url 'showbiz-single' i.id %}">{{i.title}}</a></h2>
-                    <span class="author mb-3 d-block">Jenny Wilson</span>
-                  </div>
-                  {% endfor %}
-
-                  {% for j in sport_post_trending %}
-                  <div class="post-entry-1 border-bottom">
-                    <div class="post-meta"><span class="date">{{j.category}}</span> <span class="mx-1">&bullet;</span> <span>{{j.created_at}}</span></div>
-                    <h2 class="mb-2"><a href="{% url 'sport-single' j.id %}">{{j.title}}</a></h2>
-                    <span class="author mb-3 d-block">Enes Jashari</span>
-                  </div>
-                  {% endfor %}
-
-                </div> <!-- End Popular -->
-
-       
-              </div>
-            </div>
+            {% include 'nav-bar-posts.html' %}
+  
 
             <div class="aside-block">
               <h3 class="aside-title">Video</h3>
