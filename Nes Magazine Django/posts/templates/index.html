@@ -1,0 +1,657 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Nes Magazine</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: ZenBlog - v1.1.0
+  * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
+  * Author: BootstrapMade.com
+  * License: https:///bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="{% static 'assets/img/logo.png' %}" alt=""> -->
+        <h1>Nes Magazine</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}">Blog</a></li>
+          <li class="dropdown"><a href="{% url 'category' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="search-result.html">Search Result</a></li>
+              <li><a href="#">Drop Down 1</a></li>
+              <li class="dropdown"><a href="{% url 'sport-category' %}"><span>Sport</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                  <li><a href="#">Deep Drop Down 3</a></li>
+                  <li><a href="#">Deep Drop Down 4</a></li>
+                  <li><a href="#">Deep Drop Down 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Culture</a></li>
+              <li><a href="#">Showbiz</a></li>
+              <li><a href="#">Travel</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'about-us' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <div class="position-relative">
+        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
+        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+
+        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+
+  <main id="main">
+{% block fromindex %}
+    <!-- ======= Hero Slider Section ======= -->
+    <section id="hero-slider" class="hero-slider">
+      <div class="container-md" data-aos="fade-in">
+        <div class="row">
+          <div class="col-12">
+            <div class="swiper sliderFeaturedPosts">
+              <div class="swiper-wrapper">
+              {% for header in header_post %}
+                <div class="swiper-slide">
+                  <a href="{% url 'header-single' header.id  %}" class="img-bg d-flex align-items-end" style="background-image: url({{header.image.url}}); height:700px; ">
+                    <div class="img-bg-inner">
+                      <h2>{{header.title |capfirst}}</h2>
+                      <p>{{header.body | truncatewords:22|capfirst}}</p>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
+
+              </div>
+              <div class="custom-swiper-button-next">
+                <span class="bi-chevron-right"></span>
+              </div>
+              <div class="custom-swiper-button-prev">
+                <span class="bi-chevron-left"></span>
+              </div>
+
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Hero Slider Section -->
+
+    <!-- ======= Post Grid Section ======= -->
+    <section id="posts" class="posts">
+      <div class="container" data-aos="fade-up">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="post-entry-1 lg">
+              {% for post in posts %}
+              <a href="{% url 'tech-single' post.id  %}"><img src="{{post.image.url}}" alt="{% static 'media/images/No_image_available.png' %}" class="img-fluid"></a>
+              <div class="post-meta"><span class="date">{{post.category}}</span> <span class="mx-1">&bullet;</span> <span>{{post.created_at}}</span></div>
+              <h2><a href="{% url 'tech-single' post.id  %}">{{post.title |capfirst}}</a></h2>
+              <p class="mb-4 d-block">{{post.prefix |capfirst}}</p>
+              {% endfor %}
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="{% static 'assets/img/person-3.jpg' %}" alt="No img found 404 enes" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">Enes Jashari</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+              {% for showbiz in showbiz_post %}
+                  <div class="post-entry-1">
+                    <a href="{% url 'showbiz-single' showbiz.id  %}"><img src="{{showbiz.image.url}}" alt="" class="img-fluid"></a>
+                    <div class="post-meta"><span class="date">{{showbiz.category}}</span> <span class="mx-1">&bullet;</span> <span>{{showbiz.created_at}}</span></div>
+                    <h2><a href="{% url 'showbiz-single' showbiz.id  %}">{{showbiz.title |capfirst}}</a></h2>
+                  </div>
+              {% endfor %}
+              {% for travel in travel_post %}
+                  <div class="post-entry-1">
+                    <a href="{% url 'travel-single' travel.id  %}"><img src="{{travel.image.url}}" alt="" class="img-fluid"></a>
+                    <div class="post-meta"><span class="date">{{travel.category}}</span> <span class="mx-1">&bullet;</span> <span>{{travel.created_at}}</span></div>
+                    <h2><a href="{% url 'travel-single' travel.id  %}">{{travel.title |capfirst}}</a></h2>
+                  </div>
+              {% endfor %}
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                {% for sport in sport_post  %}
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport.id  %}"><img src="{{sport.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">{{sport.category}}</span> <span class="mx-1">&bullet;</span> <span>{{sport.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport.id  %}">{{sport.title |capfirst}}</a></h2>
+                </div>
+                {% endfor %}  
+              </div>
+
+              <!-- Trending Section -->
+              <div class="col-lg-4">
+
+                <div class="trending">
+                  <h3>Trending</h3>
+                  <ul class="trending-post">
+                    <li>
+                      <a href="{% url 'showbiz-single' showbiz_post_nav_1.id %}">
+                        <span class="number">1</span>
+                        <h3>{{showbiz_post_nav_1.title}}</h3>
+                        <span class="author">Jane Cooper</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'showbiz-single' showbiz_post_nav_2.id %}">
+                        <span class="number">2</span>
+                        <h3>{{showbiz_post_nav_2.title}}</h3>
+                        <span class="author">Wade Warren</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'header-single' header_post_nav_1.id %}">
+                        <span class="number">3</span>
+                        <h3>{{header_post_nav_1.title}}</h3>
+                        <span class="author">Esther Howard</span>
+                      </a>
+                    </li>
+                    
+                    <li>
+                      <a href="{% url 'sport-single' sport_post_nav_1.id %}">
+                        <span class="number">4</span>
+                        <h3>{{sport_post_nav_1.title}}</h3>
+                        <span class="author">Cameron Williamson</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'sport-single' sport_post_nav_2.id %}">
+                        <span class="number">5</span>
+                        <h3>{{sport_post_nav_2.title}}</h3>
+                        <span class="author">Jenny Wilson</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div> <!-- End Trending Section -->
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section> <!-- End Post Grid Section -->
+
+    <!-- ======= Culture Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Culture</h2>
+          <div><a href="{% url 'category' %}" class="more">See All Culture</a></div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+
+            <div class="d-lg-flex post-entry-2">
+              <a href="{% url 'travel-single' travel_post_4_1.id %}" class="me-4 thumbnail mb-4 mb-lg-0 d-inline-block">
+                <img src="{{travel_post_4_1.image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_1.created_at}}</span></div>
+                <h3><a href="{% url 'travel-single' travel_post_4_1.id %}">{{travel_post_4_1.title | capfirst}}</a></h3>
+                <p>{{travel_post_4_1.body | truncatewords:20 |capfirst}}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'assets/img/person-2.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Wade Warren</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="{% url 'travel-single' travel_post_4_2.id %}"><img src="{{travel_post_4_2.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_2.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_2.id %}">{{travel_post_4_2.title | capfirst}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">{{travel_post_4_2.body| truncatewords:20 |capfirst}}</p>
+                </div>
+
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_3.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_3.id %}">{{travel_post_4_3.title | capfirst}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="{% url 'travel-single' travel_post_4_4.id %}"><img src="{{travel_post_4_4.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_4.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_4.id %}">{{travel_post_4_4.title | capfirst}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">{{travel_post_4_4.body| truncatewords:20 |capfirst}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+
+            {% for header in header_post %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{header.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'header-single' header.id  %}">{{header.title}}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+            {% endfor %}
+
+            {% for showbiz in showbiz_post %}
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{showbiz.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz.id  %}">{{showbiz.title}}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+            {% endfor %}
+
+
+
+          </div>
+        </div>
+      </div>
+    </section><!-- End Culture Category Section -->
+
+    <!-- ======= Business Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Business</h2>
+          <div><a href="category.html" class="more">See All Business</a></div>
+        </div>
+         <!-- Sort changed with 3 & 9 because the photo in web shoud be lastestarticle -->
+
+
+         <div class="row">
+          <div class="col-md-9 order-md-2">
+            <div class="d-lg-flex post-entry-2">
+              <a href="{% url 'showbiz-single' showbiz_post_3_1.id %}"  class="me-4 thumbnail d-inline-block mb-4 mb-lg-0">
+                <img src="{{showbiz_post_3_1.image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_1.created_at}}</span></div>
+                <h3><a href="{% url 'showbiz-single' showbiz_post_3_1.id %}">{{showbiz_post_3_1.showbiz_post_3_1.title |capfirst }}</a></h3>
+                <p>{{showbiz_post_3_1.body | truncatewords:20 |capfirst}}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'assets/img/person-4.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Wade Warren</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="post-entry-1 border-bottom">
+                  <a href="{% url 'showbiz-single' showbiz_post_3_2.id %}"><img src="{{showbiz_post_3_2.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_2.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_2.id %}">{{showbiz_post_3_2.title |capfirst }}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <p class="mb-4 d-block">{{showbiz_post_3_2.body| truncatewords:20 |capfirst }}</p>
+                </div>
+
+                <div class="post-entry-1">
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_4.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_4.id %}">{{showbiz_post_3_4.title |capfirst }}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <div class="post-entry-1">
+                  <a href="{% url 'showbiz-single' showbiz_post_3_3.id %}"><img src="{{showbiz_post_3_3.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_3.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_3.id %}">{{showbiz_post_3_3.title |capfirst }}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson </span>
+                  <p class="mb-4 d-block"> <a href="{% url 'showbiz-single' showbiz_post_3_3.id %}">{{showbiz_post_3_3.body | truncatewords:20 |capfirst}}</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_5.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_5.id %}">{{showbiz_post_3_5.title}}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_6.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_6.id %}">{{showbiz_post_3_6.title |capfirst }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_7.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_7.id %}">{{showbiz_post_3_7.title |capfirst }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_8.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_8.id %}">{{showbiz_post_3_8.title |capfirst }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_9.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_9.id %}">{{showbiz_post_3_9.title |capfirst }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_10.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_10.id %}">{{showbiz_post_3_10.title |capfirst }}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Business Category Section -->
+
+    <!-- ======= Lifestyle Category Section ======= -->
+    <section class="category-section">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+          <h2>Lifestyle</h2>
+          <div><a href="category.html" class="more">See All Lifestyle</a></div>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <div class="post-entry-1 lg">
+              <a href="{% url 'sport-single' sport_post_1.id %}" ><img src="{{sport_post_1.image.url}}" alt="" class="img-fluid"></a>
+              <div class="post-meta"><span class="date"> 1 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_1.created_at}}</span></div>
+              <h2><a href="{% url 'sport-single' sport_post_1.id %}">{{sport_post_1.title}}</a></h2>
+              <p class="mb-4 d-block">{{sport_post_1.body}}</p>
+
+              <div class="d-flex align-items-center author">
+                <div class="photo"><img src="{% static 'assets/img/person-7.jpg' %}" alt="" class="img-fluid"></div>
+                <div class="name">
+                  <h3 class="m-0 p-0">Esther Howard</h3>
+                </div>
+              </div>
+            </div>
+
+            <div class="post-entry-1 border-bottom">
+              <div class="post-meta"><span class="date"> 8 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_8.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_8.id %}">{{sport_post_8.title}}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+            <div class="post-entry-1">
+              <div class="post-meta"><span class="date"> 9 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_9.created_at}}</span></div>
+              <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_9.id %}">{{sport_post_9.title}}</a></h2>
+              <span class="author mb-3 d-block">Jenny Wilson</span>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8">
+            <div class="row g-5">
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_2.id %}"><img src="{{sport_post_2.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 2 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_2.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_2.id %}">{{sport_post_2.title}}</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_4.id %}"><img src="{{sport_post_4.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 4 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_4.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_4.id %}">{{sport_post_4.title}}</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_6.id %}"><img src="{{sport_post_6.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 6 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_6.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_6.id %}">{{sport_post_6.title}}</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4 border-start custom-border">
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_3.id %}"><img src="{{sport_post_3.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 3 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_3.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_3.id %}">{{sport_post_3.title}}</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_5.id %}"><img src="{{sport_post_5.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 5 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_5.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_5.id %}">{{sport_post_5.title}}</a></h2>
+                </div>
+                <div class="post-entry-1">
+                  <a href="{% url 'sport-single' sport_post_7.id %}"><img src="{{sport_post_7.image.url}}" alt="" class="img-fluid"></a>
+                  <div class="post-meta"><span class="date"> 7 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_7.created_at}}</span></div>
+                  <h2><a href="{% url 'sport-single' sport_post_7.id %}">{{sport_post_7.title}}</a></h2>
+                </div>
+              </div>
+              <div class="col-lg-4">
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date"> 10 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_10.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_10.id %}">{{sport_post_10.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date"> 11 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_11.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_11.id %}">{{sport_post_11.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date"> 12 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_12.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_12.id %}">{{sport_post_12.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">13 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_13.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_13.id %}">{{sport_post_13.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">14 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_14.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_14.id %}">{{sport_post_14.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+                <div class="post-entry-1 border-bottom">
+                  <div class="post-meta"><span class="date">15 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_15.created_at}}</span></div>
+                  <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_15.id %}">{{sport_post_15.title}}</a></h2>
+                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section><!-- End Lifestyle Category Section -->
+
+  </main><!-- End #main -->
+{% endblock %}
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h3 class="footer-heading">About Nes Magazine</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
+            <p><a href="{% url 'about-us' %}" class="footer-link-more">Learn More</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Navigation</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="{% url 'index' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="{% url 'category' %}"><i class="bi bi-chevron-right"></i> Categories</a></li>
+              <li><a href="{% url 'about-us' %}"><i class="bi bi-chevron-right"></i> About us</a></li>
+              <li><a href="{% url 'contact' %}"><i class="bi bi-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Categories</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
+              <li><a href="{% url 'sport-category' %}"><i class="bi bi-chevron-right"></i> Sport</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-4">
+            <h3 class="footer-heading">Recent Posts</h3>
+
+            <ul class="footer-links footer-blog-entry list-unstyled">
+
+              {% for header in header_post %}
+              <li>
+                <a href="{% url 'header-single' header.id  %}" class="d-flex align-items-center">
+                  <img src="{{header.image.url}}" alt="" class="img-fluid me-3">
+                  <div>
+                    <div class="post-meta d-block"><span class="date">{{header.category}}</span> <span class="mx-1">&bullet;</span> <span>{{header.created_at}}</span></div>
+                    <span>{{header.title}}</span>
+                  </div>
+                </a>
+              </li>
+              {% endfor %}
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="copyright">
+              © Copyright <strong><span>Nes Magazine</span></strong>. All Rights Reserved
+            </div>
+
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

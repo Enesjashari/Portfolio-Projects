@@ -1,0 +1,17 @@
+{% extends "single-post.html" %}
+
+
+{% block single %}
+<!-- ======= Single Post Content ======= -->
+<div class="single-post">
+  <div class="post-meta"><span class="date">{{sportpost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{sportpost.created_at}}</span></div>
+  <h1 class="mb-5">{{sportpost.title}}</h1>
+  <p><span class="firstcharacter"></span>{{sportpost.prefix}}</p>
+
+  <figure class="my-4">
+    <img src="{{sportpost.image.url}}" width="800" style="margin-left:80px ;" alt="No Photo" class="img-fluid">
+  </figure>
+  <p>{{sportpost.body}}</p>
+</div><!-- End Single Post Content -->
+{% endblock %}
+

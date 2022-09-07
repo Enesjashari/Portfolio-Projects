@@ -1,0 +1,18 @@
+{% extends 'single-post.html' %}
+
+
+{% block single %}
+<!-- ======= Single Post Content ======= -->
+<div class="single-post">
+  <div class="post-meta"><span class="date">{{techpost.category}}</span> <span class="mx-1">&bullet;</span> <span>{{techpost.created_at}}</span></div>
+  <h1 class="mb-5">{{techpost.title}}</h1>
+  <p><span class="firstcharacter"></span>{{techpost.prefix}}</p>
+
+  <figure class="my-4">
+    <img src="{{techpost.image.url}}" width="800" style="margin-left:80px ;" alt="No Photo" class="img-fluid">
+  </figure>
+  <p>{{techpost.body}}</p>
+</div><!-- End Single Post Content -->
+
+{% endblock %}
+
