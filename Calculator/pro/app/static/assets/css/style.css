@@ -1,0 +1,40 @@
+body{
+    background: url("../img/math.jpg") top center;
+    background-size:cover ;
+    background-position: top;
+}
+
+#mathform {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 200px;
+    position: relative;
+}
+#select{
+    margin-left: 310px;
+    font-size: 17px;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#submit{
+    margin-left: 270px;
+    font-size: 18px;
+    background-color: rgb(175, 4, 4);
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px 3px 3px 3px;
+}
+
+#label{
+    color: black;
+    font-size: 25px;
+    border-radius: 5px 15px 15px 5px;
+    background: -webkit-linear-gradient(0deg,rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+}
+#input{
+    font-size: 20px;
+    border-radius: 3px 3px 3px 3px;
+    border: 1px solid white;
+
+}
