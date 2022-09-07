@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+</head>
+<body>
+    
+</body>
+</html>
+<style>
+    h5{
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    };
+</style>
+{% if user.is_authenticated %}
+    <h1>Home Page</h1>
+    <h5><a href="{% url 'logout' %}">logout</a></h5>
+{% else %}
+    <h1>Clicl below to Login</h1>
+    <h5><a href="{% url 'login' %}">login</a></h5>
+{% endif %}
+<!-- boostramptemplate -->
