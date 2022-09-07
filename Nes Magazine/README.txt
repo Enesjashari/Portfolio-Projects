@@ -1,1 +1,0 @@
-Install venv & requirements before runing this application.
