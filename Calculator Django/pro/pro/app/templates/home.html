@@ -1,0 +1,70 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<form  method="post">
+    {% csrf_token %}
+    <h1>enter the number1</h1>
+    <input type="text" name="number1">
+    <h1>chose the operator</h1>
+    <input type="text" name="operator">
+    <h1>enter the number2</h1>
+    <input type="text" name="number2">
+    <button type="submit">submit</button>
+</form>
+
+<h1>the result is {{result}}</h1> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                {% csrf_token %}
+                <label>Value 1</label>
+                <input type="text" name="number1"placeholder="Value 3" id="number1" class="form-control"/>
+                <br><br>
+                <select name="operator" class="form-control" >
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/<option>
+                    <option value="**">**<option>
+                    <option value="//">//<option>
+                    <option value="%">%<option>                        
+                        
+                        
+                </select>
+                <br><br>
+                <label>Value 2</label>
+                <input type="text"placeholder="Value 2" name="number2" id="number2"class="form-control">
+                <br><br>
+                <button type="submit">Submit</button>
+                <br><br>
+                
+                <label>Value 3</label>
+                <input type="text" placeholder="Output" value="{{result}}" class="form-control" />
+            </form>
+        </div>
+    </div>
+</body>
+</html>
