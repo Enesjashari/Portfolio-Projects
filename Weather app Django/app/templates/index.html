@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets\css\style2.css' %}">
+</head>
+<body>
+
+    <nav class="row" id="nav">
+        <div id="nav2" ><h1 class="col-md-3 text-center">Nes Weather Detector </h1></div>
+    </nav>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+    <input type="text" placeholder="Enter Country/City Name..."  name="search" id="input1">
+    <button id="search" type="submit">Search</button>
+    </form>
+
+<br><br><br><br>
+    <table>
+        <tr>
+            <td>Country/City & Code</td>
+            <td>{{country_code}}</td>
+        </tr>
+
+        <tr>
+            <td>Temp</td>
+            <td>{{temp}}</td>
+        </tr>
+
+        <tr>
+            <td>Feels like</td>
+            <td>{{feels_like}}</td>
+        </tr>
+
+        <tr>
+            <td>Humidity</td>
+            <td>{{humidity}}</td>
+        </tr>
+
+        <tr>
+            <td>Wind Speed (<i>Km/h</i>)</td>
+            <td>{{wind_speed}} <i> Km/h</i></td>
+        </tr>
+
+        <tr>
+            <td>Clouds</td>
+            <td>{{clouds}}</td>
+        </tr>
+
+        <tr>
+            <td>Coord</td>
+            <td>Longitude : {{longitude}}   <br> Latitude        : {{latitude}}
+            </td>
+        </tr>
+
+    </table>
+    
+    <br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>

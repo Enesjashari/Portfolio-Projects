@@ -1,0 +1,78 @@
+body {
+    background-color: rgb(193, 235, 235);
+}
+
+#input1{
+    position: absolute;
+    top: 128px;
+    right: 118px;
+    background-color: #EAECEE;
+    width: 25%;
+    height: 4%;
+    border-radius: 45px 45px 45px 45px;
+    text-align: center;
+    color: black;
+    border-color: black;
+}
+#search{
+    position: absolute;
+    top: 130px;
+    right: 45px; 
+    height: 4%;
+    width:5%;
+    border-color: black;
+    background-color: #85929E ;
+    color: black;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#search:hover{
+    position: absolute;
+    top: 130px;
+    right: 45px; 
+    height: 4%;
+    width:5%;
+    border-color: black;
+    background-color: red ;
+    color: black;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#nav{
+    background-color: grey; 
+    background-image: url("../img/weather-images.png");
+    color: white;
+    padding-top: 0px;
+    padding-bottom:3px ;
+    padding-top:3px ;
+    padding-left: 3px;
+    
+    background-repeat: no-repeat;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 25px;
+    
+}
+
+#nav2{
+    margin-left: 580px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 25px;
+}
+
+
+table,td,tr{
+    
+    border:2px solid black;
+    width: 70%;
+    height: 35px;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+
+tr:nth-child(even) {
+    background-color: #FCE4EC; 
+  }
+tr:nth-child(odd) {
+    background-color: #F8BBD0;
+  }
