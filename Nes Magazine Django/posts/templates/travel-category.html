@@ -11,7 +11,7 @@
           <div class="col-md-9" data-aos="fade-up">
             <h3 class="category-title">Category: Business</h3>
 
-            {% for i in sport_post_category_header %}
+            {% for i in travel_post_category_header %}
             <div class="d-md-flex post-entry-2 half">
               <a href="{% url 'header-single' i.id  %}" class="me-4 thumbnail">
                 <img src="{{i.image.url}}" alt="" class="img-fluid">
@@ -30,7 +30,7 @@
             </div>
             {% endfor %}
 
-            {% for i in sport_post_category %}
+            {% for i in travel_post_category %}
             <div class="d-md-flex post-entry-2 half">
               <a href="{% url 'sport-single' i.id %}" class="me-4 thumbnail">
                 <img src="{{i.image.url}}" alt="" class="img-fluid">
