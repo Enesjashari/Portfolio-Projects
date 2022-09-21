@@ -2,17 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
 
-
-
 # Create your views here.
-
-
-
-
-
 def index(request):
-    
-
     
     post = Tech.objects.all()[::-1]
     posts = post[:2]
@@ -527,3 +518,94 @@ def travel_category(request):
         "travel_post_category":travel_post_category,
     }
     return render (request,'travel-category.html',context)
+
+
+
+def showbiz_category(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    showbiz = HeaderPost.objects.filter(category='Showbiz')[::-1] 
+    showbiz_post_category_header = showbiz[:2]
+    #-----------------------
+    showbiz_post_v = Showbiz.objects.all()[::-1] 
+    showbiz_post_category = showbiz_post_v[:8]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "showbiz_post_category_header":showbiz_post_category_header,
+        "showbiz_post_category":showbiz_post_category,
+    }
+    return render (request,'showbiz-category.html',context)
+
+
+
+
+def tech_category(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    tech = HeaderPost.objects.filter(category='Tech')[::-1] 
+    tech_post_category_header = tech[:2]
+    #-----------------------
+    tech_post_v = Tech.objects.all()[::-1] 
+    tech_post_category = tech_post_v[:8]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "tech_post_category_header":tech_post_category_header,
+        "tech_post_category":tech_post_category,
+    }
+    return render (request,'tech-category.html',context)
