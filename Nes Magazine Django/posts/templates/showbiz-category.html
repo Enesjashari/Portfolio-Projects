@@ -32,12 +32,12 @@
 
             {% for i in showbiz_post_category %}
             <div class="d-md-flex post-entry-2 half">
-              <a href="{% url 'sport-single' i.id %}" class="me-4 thumbnail">
+              <a href="{% url 'showbiz-single' i.id %}" class="me-4 thumbnail">
                 <img src="{{i.image.url}}" alt="" class="img-fluid">
               </a>
               <div>
                 <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>{{i.created_at}}</span></div>
-                <h3><a href="{% url 'sport-single' i.id %}">{{i.title}}</a></h3>
+                <h3><a href="{% url 'showbiz-single' i.id %}">{{i.title}}</a></h3>
                 <p>{{i.body | truncatewords:90 }}</p>
                 <div class="d-flex align-items-center author">
                   <div class="photo"><img src="{% static 'assets/img/person-2.jpg' %}" alt="" class="img-fluid"></div>
