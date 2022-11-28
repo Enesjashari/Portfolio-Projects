@@ -36,7 +36,7 @@
   * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
   * Author: BootstrapMade.com
   * License: https:///bootstrapmade.com/license/
-  ======================================================== -->
+  =====================================================image.png=== -->
 </head>
 
 <body>
@@ -48,7 +48,8 @@
       <a href="{% url 'index' %}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="{% static 'assets/img/logo.png' %}" alt=""> -->
-        <h1>Nes Magazine</h1>
+        <img src="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}"  width="100px" height="60px" alt="404" >
+        <!-- <h1 style="margin-left: -10px;" >Nes Magazine</h1> -->
       </a>
 
       <nav id="navbar" class="navbar">
@@ -56,7 +57,7 @@
           <li><a href="{% url 'index' %}">Blog</a></li>
           <li class="dropdown"><a href="{% url 'category' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="search-result.html">Search Result</a></li>
+              <li><a href="{% url 'search' %}">Search Result</a></li>
               <li><a href="{% url 'travel-category' %}">Culture</a></li>
               <li><a href="{% url 'showbiz-category' %}">Showbiz</a></li>
               <li class="dropdown"><a href="{% url 'sport-category' %}"><span>Sport</span></a>
@@ -85,14 +86,20 @@
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
 
-        <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+        <form id="post-form" method="POST" action="{% url 'search' %}" class="d-flex ml-auto">
+          {% csrf_token %}
+          <input class="form-control me-2" id="searchquerry" type="search" name="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        
+        <a href="#" class="mx-2 js-search-open"><span class="bi-searchx"></span></a>
         <i class="bi bi-list mobile-nav-toggle"></i>
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
-          <form action="search-result.html" class="search-form">
+          <form action="{% url 'search' %}" class="search-form">
             <span class="icon bi-search"></span>
-            <input type="text" placeholder="Search" class="form-control">
+            <input type="text"  placeholder="Search" class="form-control">
             <button class="btn js-search-close"><span class="bi-x"></span></button>
           </form>
         </div><!-- End Search Form -->
@@ -649,6 +656,8 @@
   <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>

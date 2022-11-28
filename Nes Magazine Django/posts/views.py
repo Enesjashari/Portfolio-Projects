@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from django.views.decorators.http import require_POST
+
 
 # Create your views here.
 def index(request):
@@ -609,3 +611,34 @@ def tech_category(request):
         "tech_post_category":tech_post_category,
     }
     return render (request,'tech-category.html',context)
+
+
+# @require_POST
+def search(request):
+    if request.method=='POST':
+        
+        search_query  = request.POST['search']
+
+        todos1 = Tech.objects.filter(title__contains = search_query) 
+        todos2 = HeaderPost.objects.filter(title__contains = search_query) 
+        todos3 = Showbiz.objects.filter(title__contains = search_query) 
+        todos4 = Travel.objects.filter(title__contains = search_query) 
+        todos5 = Sport.objects.filter(title__contains = search_query) 
+
+        if todos1 or todos2 or todos3 or todos4 or todos5:
+            context = {
+                "todos1":todos1,
+                "todos2":todos2,
+                "todos3":todos3,
+                "todo4s":todos4,
+                "tod5os":todos5,
+
+            }
+            return render(request,'search-result.html',context)
+        else:
+            result = 'No Results !'
+            context = {
+                'todos':result,
+            }
+            return render(request,'search-result.html',context)
+    return render(request , 'search-result.html')
