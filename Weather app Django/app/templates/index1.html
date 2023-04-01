@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets\css\style2.css' %}">
+</head>
+<body>
+
+    <nav class="row" id="nav">
+        <div id="nav2" ><h1 class="col-md-3 text-center">Nes Weather Detector </h1></div>
+    </nav>
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+    <input type="text" placeholder="Enter Country/City Name..."  name="search" id="input1">
+    <button id="search" type="submit">Search</button>
+    </form>
+
+<br><br><br><br>
+    <table>
+        <tr>
+            <td>Country/City & Code</td>
+            <td>{{country_code}}</td>
+        </tr>
+
+        <tr>
+            <td>Temp</td>
+            <td>{{temp}}</td>
+        </tr>
+
+        <tr>
+            <td>Feels like</td>
+            <td>{{feels_like}}</td>
+        </tr>
+
+        <tr>
+            <td>Humidity</td>
+            <td>{{humidity}}</td>
+        </tr>
+
+        <tr>
+            <td>Wind Speed (<i>Km/h</i>)</td>
+            <td>{{wind_speed}} <i> Km/h</i></td>
+        </tr>
+
+        <tr>
+            <td>Clouds</td>
+            <td>{{clouds}}</td>
+        </tr>
+
+        <tr>
+            <td>Coord</td>
+            <td>Longitude : {{longitude}}   <br> Latitude        : {{latitude}}
+            </td>
+        </tr>
+
+    </table>
+    
+    <br><br><br><br><br><br><br><br><br>
+
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Load the Iconify library -->
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <!-- Load Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1616613429446-72e00981bba6');
+            background-size: cover;
+            background-position: center center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .search-form {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 5px;
+            padding: 20px;
+        }
+        
+        .weather-info {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.75);
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .weather-info h2 {
+            font-weight: bold;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .weather-info p {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        /* Iconify icon styles */
+        .wi-thermometer {
+            color: #f44336;
+        }
+        
+        .wi-humidity {
+            color: #2196f3;
+        }
+        
+        .wi-strong-wind {
+            color: #8bc34a;
+        }
+        
+        .wi-sunrise {
+            color: yellow;
+        }
+        
+        .wi-sunset {
+            color: orange;
+        }
+        
+        .wi-barometer {
+            color: #00bcd4;
+        }
+        
+        .wi-visibility {
+            color: #9c27b0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="search-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Enter city name">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="weather-info">
+                    <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;"></span>
+                    <h2>25°C</h2>
+                    <p>Cloudy</p>
+                    <span class="iconify wi-humidity" data-icon="wi-humidity" style="width:20px;height:20px;"></span>
+                    <p>Humidity: 75%</p>
+                    <span class="iconify wi-strong-wind" data-icon="wi-strong-wind" style="width:20px;height:20px;"></span>
+                    <p>Wind: 10 km/h</p>
+                    <span class="iconify wi-sunrise" data-icon="wi-sunrise" style="width:20px;height:20px;"></span>
+                    <p>Sunrise: 6:30 AM</p>
+                    <span class="iconify wi-sunset" data-icon="wi-sunset" style="width:20px;height:20px;"></span>
+                    <p>Sunset: 6:30 PM</p>
+                    <span class="iconify wi-barometer" data-icon="wi-barometer" style="width:20px;height:20px;"></span>
+                    <p>Pressure: 1013 hPa</p>
+                    <span class="iconify wi-visibility" data-icon="wi-visibility" style="width:20px;height:20px;"></span>
+                    <p>Visibility: 10 km</p>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    </body>
+                    </html>
+
+</body>
+</html>

@@ -1,67 +1,103 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'assets\css\style2.css' %}">
+ <title>Nes Weather: Live Weather</title>
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/weather.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/weather.jpg' %}" rel="apple-touch-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <link rel="stylesheet" href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
 </head>
+
+
 <body>
-
-    <nav class="row" id="nav">
-        <div id="nav2" ><h1 class="col-md-3 text-center">Nes Weather Detector </h1></div>
-    </nav>
-
-
-    <form action="" method="post">
+  <div class="container">
+    <div class="search-container">
+      <form action="" method="post">
         {% csrf_token %}
-    <input type="text" placeholder="Enter Country/City Name..."  name="search" id="input1">
-    <button id="search" type="submit">Search</button>
-    </form>
+        <input type="text" placeholder="Enter location..." name="search" id="input1">
+        <input id="search" type="submit" value="Search">
+      </form>
+    </div>
 
-<br><br><br><br>
-    <table>
-        <tr>
-            <td>Country/City & Code</td>
-            <td>{{country_code}}</td>
-        </tr>
 
-        <tr>
-            <td>Temp</td>
-            <td>{{temp}}</td>
-        </tr>
 
-        <tr>
-            <td>Feels like</td>
-            <td>{{feels_like}}</td>
-        </tr>
 
-        <tr>
-            <td>Humidity</td>
-            <td>{{humidity}}</td>
-        </tr>
+    <div class="weather-parameters">
+      <div class="weather-parameter">
+        <span class="iconify wi-humidity" data-icon="wi-humidity" style="width:20px;height:20px;color:blue;"></span>
+        <h4>Humidity</h4>
+        <p>{{humidity}}%</p>
+      </div>
 
-        <tr>
-            <td>Wind Speed (<i>Km/h</i>)</td>
-            <td>{{wind_speed}} <i> Km/h</i></td>
-        </tr>
 
-        <tr>
-            <td>Clouds</td>
-            <td>{{clouds}}</td>
-        </tr>
+      <div class="weather-parameter">
+        <span class="iconify wi-strong-wind" data-icon="wi-strong-wind" style="width:20px;height:20px;color:gray;"></span>
+        <h4>Wind</h4>
+        <p>{{wind_speed}} km/h</p>
+      </div>
 
-        <tr>
-            <td>Coord</td>
-            <td>Longitude : {{longitude}}   <br> Latitude        : {{latitude}}
-            </td>
-        </tr>
+      <div class="weather-parameter">
+        <span class="iconify wi-cloudy" data-icon="wi-cloudy" style="width:20px;height:20px;color:gray;"></span>
+        <h4>Clouds</h4>
+        <p>{{clouds}}%</p>
+      </div>
 
-    </table>
-    
-    <br><br><br><br><br><br><br><br><br>
+        <div class="weather-parameter">
+          <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:red;"></span>
+            <h4>Temperature</h4>
+            <p>{{temp}}°C</p>
+          </div>
 
-</body>
-</html>
+          <div class="weather-parameter">
+            <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:red;"></span>
+              <h4>Feels like</h4>
+              <p>{{feels_like}}°C</p>
+            </div>
+
+            <div class="weather-parameter">
+              <span class="iconify" data-icon="emojione-flag-for-flag-{{search}}" style="width:20px;height:20px;"></span>
+              <h4>Country Code</h4>
+              <p>{{country_code}}</p>
+            </div>
+
+          <div class="weather-parameter">
+            <span class="iconify wi-barometer" data-icon="wi-barometer" style="width:35px;height:35px;color:blue;"></span>
+            <h4>Pressure</h4>
+            <p>{{pressure_bar}} Bar</p>
+          </div>
+
+          <div class="weather-parameter">
+            <span class="iconify" data-icon="bx:bxs-binoculars" data-inline="false" style="color:black; font-size:20px;"></span>
+            <h4>Visibility</h4>
+            <p>{{visibility}} km</p>
+          </div>
+
+          <div class="weather-parameter">
+            <span class="iconify" data-icon="ic:baseline-gps-fixed" data-inline="false" style="color:#2196f3; font-size:20px;"></span>
+            <h4>Latitude</h4>
+            <p>{{latitude}}</p>
+          </div>
+
+          <div class="weather-parameter">
+            <span class="iconify" data-icon="ic:baseline-gps-fixed" data-inline="false" style="color:#2196f3; font-size:20px;"></span>
+            <h4>Longitude</h4>
+            <p>{{longitude}}</p>
+          </div>
+
+          
+        </div>
+      </div>
+
+      
+      <div class="footer">
+        <p title="Enes Jashari Website" >&copy; <b><a id="Enesjashari" href="https://enesjashari.github.io/">Enes Jashari</a></b>. All rights reserved.</p>
+      </div>
+    </body>
+    </html>
+
+
