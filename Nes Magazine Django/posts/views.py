@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from django.views.decorators.http import require_POST
@@ -78,6 +78,7 @@ def index(request):
 
 
     context = {
+        # Header Dict
         'posts':posts,
         'header_post':header_post,
         'showbiz_post':showbiz_post,
@@ -236,6 +237,8 @@ def tech_single(request,pin):
     sport_post_v = Sport.objects.all()[::-1] 
     sport_post_trending = sport_post_v[:3]
 
+
+
     context = {
         'techpost':techpost,
         "showbiz_post_1":showbiz_post_1,
@@ -246,6 +249,7 @@ def tech_single(request,pin):
         "posts":posts,
         "travel_post":travel_post,
         "header_post":header_post,
+
         #end nav-bar-posts
 
     }
@@ -374,9 +378,9 @@ def about_us(request):
     #Model header | takes 4 last elements; its reversed
     Header_Post_v = HeaderPost.objects.all()[::-1]
     header_post = Header_Post_v[:5]
-    lastest_post = Showbiz.objects.all()[::-1]
+    lastest_post = Sport.objects.all()[::-1]
     lastest = lastest_post[2]
-    header_about = HeaderPost.objects.all()[::-1]
+    header_about = Tech.objects.all()[::-1]
     header_a = header_about[0]
     context = {
         "header_post":header_post,
@@ -469,13 +473,169 @@ def sport_category(request):
         "travel_post":travel_post,
         "header_post":header_post,
 
-         #variables for sport category templates
+        #variables for sport category templates
         "sport_post_category_header":sport_post_category_header,
         "sport_post_category":sport_post_category,
     }
-    return render (request,'sport-category.html',context)
+    return render (request,'sport-categories/sport-category.html',context)
 
 
+def sport_category_2(request):
+        #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_category = sport_post_v[8:18]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+        #variables for sport category templates
+        "sport_post_category":sport_post_category,
+    }
+    return render (request,'sport-categories/sport-category-2.html',context)
+
+def sport_category_3(request):
+        #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_category = sport_post_v[18:28]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+        #variables for sport category templates
+        "sport_post_category":sport_post_category,
+    }
+    return render (request,'sport-categories/sport-category-3.html',context)
+
+
+def sport_category_4(request):
+        #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_category = sport_post_v[28:38]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+        #variables for sport category templates
+        "sport_post_category":sport_post_category,
+    }
+    return render (request,'sport-categories/sport-category-4.html',context)
+
+def sport_category_5(request):
+        #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_category = sport_post_v[28:38]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+        #variables for sport category templates
+        "sport_post_category":sport_post_category,
+    }
+    return render (request,'sport-categories/sport-category-5.html',context)
 
 
 def travel_category(request):
@@ -519,9 +679,169 @@ def travel_category(request):
         "travel_post_category_header":travel_post_category_header,
         "travel_post_category":travel_post_category,
     }
-    return render (request,'travel-category.html',context)
+    return render (request,'travel-categories/travel-category.html',context)
 
 
+
+def travel_category_2(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    travel = HeaderPost.objects.filter(category='Travel')[::-1] 
+    travel_post_category_header = travel[:2]
+    #-----------------------
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post_category = travel_post_v[8:18]
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "travel_post_category_header":travel_post_category_header,
+        "travel_post_category":travel_post_category,
+    }
+    return render (request,'travel-categories/travel-category-2.html',context)
+
+
+def travel_category_3(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    travel = HeaderPost.objects.filter(category='Travel')[::-1] 
+    travel_post_category_header = travel[:2]
+    #-----------------------
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post_category = travel_post_v[18:28]
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "travel_post_category_header":travel_post_category_header,
+        "travel_post_category":travel_post_category,
+    }
+    return render (request,'travel-categories/travel-category-3.html',context)
+
+    
+
+def travel_category_4(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    travel = HeaderPost.objects.filter(category='Travel')[::-1] 
+    travel_post_category_header = travel[:2]
+    #-----------------------
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post_category = travel_post_v[28:38]
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "travel_post_category_header":travel_post_category_header,
+        "travel_post_category":travel_post_category,
+    }
+    return render (request,'travel-categories/travel-category-4.html',context)
+
+
+def travel_category_5(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    travel = HeaderPost.objects.filter(category='Travel')[::-1] 
+    travel_post_category_header = travel[:2]
+    #-----------------------
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post_category = travel_post_v[38:48]
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "travel_post_category_header":travel_post_category_header,
+        "travel_post_category":travel_post_category,
+    }
+    return render (request,'travel-categories/travel-category-5.html',context)
 
 def showbiz_category(request):
     #Model header | takes 4 last elements; its reversed
@@ -564,8 +884,168 @@ def showbiz_category(request):
         "showbiz_post_category_header":showbiz_post_category_header,
         "showbiz_post_category":showbiz_post_category,
     }
-    return render (request,'showbiz-category.html',context)
+    return render (request,'showbiz-categories/showbiz-category.html',context)
 
+
+def showbiz_category_2(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+
+    #-----------------------
+    showbiz_post_v = Showbiz.objects.all()[::-1] 
+    showbiz_post_category = showbiz_post_v[8:18]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "showbiz_post_category":showbiz_post_category,
+    }
+    return render (request,'showbiz-categories/showbiz-category-2.html',context)
+
+def showbiz_category_3(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #-----------------------
+    showbiz_post_v = Showbiz.objects.all()[::-1] 
+    showbiz_post_category = showbiz_post_v[18:28]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "showbiz_post_category":showbiz_post_category,
+    }
+    return render (request,'showbiz-categories/showbiz-category-3.html',context)
+
+def showbiz_category_4(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+
+    #-----------------------
+    showbiz_post_v = Showbiz.objects.all()[::-1] 
+    showbiz_post_category = showbiz_post_v[28:38]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+        "showbiz_post_category":showbiz_post_category,
+    }
+    return render (request,'showbiz-categories/showbiz-category-4.html',context)
+
+def showbiz_category_5(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #-----------------------
+    showbiz_post_v = Showbiz.objects.all()[::-1] 
+    showbiz_post_category = showbiz_post_v[38:48]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+
+        "showbiz_post_category":showbiz_post_category,
+    }
+    return render (request,'showbiz-categories/showbiz-category-5.html',context)
 
 
 
@@ -610,35 +1090,238 @@ def tech_category(request):
         "tech_post_category_header":tech_post_category_header,
         "tech_post_category":tech_post_category,
     }
-    return render (request,'tech-category.html',context)
+    return render (request,'technology-categories/tech-category.html',context)
+
+
+def tech_category_2(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+    #-----------------------
+    tech_post_v = Tech.objects.all()[::-1] 
+    tech_post_category = tech_post_v[8:18]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+        "tech_post_category":tech_post_category,
+    }
+    return render (request,'technology-categories/tech-category-2.html',context)
+
+
+
+def tech_category_3(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+    #-----------------------
+    tech_post_v = Tech.objects.all()[::-1] 
+    tech_post_category = tech_post_v[18:28]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+
+        "tech_post_category":tech_post_category,
+    }
+    return render (request,'technology-categories/tech-category-3.html',context)
+
+
+
+def tech_category_4(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+
+    #-----------------------
+    tech_post_v = Tech.objects.all()[::-1] 
+    tech_post_category = tech_post_v[28:38]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+
+        "tech_post_category":tech_post_category,
+    }
+    return render (request,'technology-categories/tech-category-4.html',context)
+
+
+
+def tech_category_5(request):
+    #Model header | takes 4 last elements; its reversed
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:5]
+    #nav-bar-posts
+    showbiz_post_nav = Showbiz.objects.all()[::-1]
+    showbiz_post_1 = showbiz_post_nav[:3]
+    sport_post_v = Sport.objects.all()[::-1] 
+    sport_post_trending = sport_post_v[:3]
+    post = Tech.objects.all()[::-1]
+    posts = post[:2]
+    travel_post_v = Travel.objects.all()[::-1] 
+    travel_post = travel_post_v[:4]
+    Header_Post_v = HeaderPost.objects.all()[::-1]
+    header_post = Header_Post_v[:6]
+    #end nav-bar-posts
+
+
+    #variables for sport category templates
+
+    #-----------------------
+    tech_post_v = Tech.objects.all()[::-1] 
+    tech_post_category = tech_post_v[38:48]
+
+
+   
+
+    context = {
+        "header_post":header_post,
+        #nav-bar-posts
+        "showbiz_post_1":showbiz_post_1,
+        "sport_post_trending":sport_post_trending,
+        "posts":posts,
+        "travel_post":travel_post,
+        "header_post":header_post,
+
+         #variables for sport category templates
+
+        "tech_post_category":tech_post_category,
+    }
+    return render (request,'technology-categories/tech-category-5.html',context)
 
 
 # @require_POST
+# def search(request):
+#     try:
+#         if request.method=='POST':
+#             search_query  = request.POST['search']
+
+#             todos1 = Tech.objects.filter(title__contain = search_query) 
+#             todos2 = HeaderPost.objects.filter(title__contain = search_query) 
+#             todos3 = Showbiz.objects.filter(title__contain = search_query) 
+#             todos4 = Travel.objects.filter(title__contain = search_query) 
+#             todos5 = Sport.objects.filter(title__contain = search_query) 
+
+#             if todos1 or todos2 or todos3 or todos4 or todos5:
+#                 context = {
+#                     "todos1":todos1,
+#                     "todos2":todos2,
+#                     "todos3":todos3,
+#                     "todo4s":todos4,
+#                     "tod5os":todos5,
+
+#                 }
+#             return render(request,'search-result.html',context)
+#         else:
+#             result = 'No Results !'
+#             context = {
+#                 'todos':result,
+#             }
+#             return render(request , 'search-result.html',context)
+#     except:
+#         result = 'No Results !'
+#         context = {
+#             'todos':result,
+#         }
+#         return render(request,'search-result.html',context)
 def search(request):
-    if request.method=='POST':
-        
-        search_query  = request.POST['search']
+    try:
+        if request.method=='POST':
+            
+            search_query  = request.POST['search']
 
-        todos1 = Tech.objects.filter(title__contains = search_query) 
-        todos2 = HeaderPost.objects.filter(title__contains = search_query) 
-        todos3 = Showbiz.objects.filter(title__contains = search_query) 
-        todos4 = Travel.objects.filter(title__contains = search_query) 
-        todos5 = Sport.objects.filter(title__contains = search_query) 
+            todos1 = Tech.objects.filter(title__contains = search_query) 
+            todos2 = HeaderPost.objects.filter(title__contains = search_query) 
+            todos3 = Showbiz.objects.filter(title__contains = search_query) 
+            todos4 = Travel.objects.filter(title__contains = search_query) 
+            todos5 = Sport.objects.filter(title__contains = search_query) 
 
-        if todos1 or todos2 or todos3 or todos4 or todos5:
-            context = {
-                "todos1":todos1,
-                "todos2":todos2,
-                "todos3":todos3,
-                "todo4s":todos4,
-                "tod5os":todos5,
-
-            }
-            return render(request,'search-result.html',context)
-        else:
-            result = 'No Results !'
-            context = {
-                'todos':result,
-            }
-            return render(request,'search-result.html',context)
-    return render(request , 'search-result.html')
+            if todos1 or todos2 or todos3 or todos4 or todos5:
+                context = {
+                    "todos1":todos1[::-1],
+                    "todos2":todos2[::-1],
+                    "todos3":todos3[::-1],
+                    "todo4s":todos4[::-1],
+                    "tod5os":todos5[::-1],
+                }
+                return render(request,'search-result.html',context)
+            else:
+                result = f"Sorry, we couldn't find any results using '{search_query}' ,Please Try again!"
+                context = {
+                    'todos':result,
+                }
+                return render(request,'search-result.html',context)
+        return render(request , 'search-result.html')
+    except:
+        result = 'No Results !'
+        context = {
+            'todos':result,
+        }
+        return render(request,'search-result.html',context)

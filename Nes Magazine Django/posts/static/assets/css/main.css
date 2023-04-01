@@ -70,7 +70,7 @@ section {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
+  left: 15px;
   bottom: 15px;
   z-index: 99999;
   background: var(--color-primary);
@@ -134,7 +134,7 @@ section {
 }
 
 .header.sticked {
-  height: 70px;
+  height: 80px;
 }
 
 .header .logo img {

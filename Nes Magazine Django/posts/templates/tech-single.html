@@ -1,6 +1,14 @@
 {% extends 'single-post.html' %}
 
 
+{% block linkshare %}
+    <meta property="og:title" content="{{ techpost.title }}">
+    <meta property="og:description" content="{{ techpost.description }}">
+    <meta property="og:image" content="{{ techpost.image.url }}">
+{% endblock %}
+
+
+
 {% block single %}
 <!-- ======= Single Post Content ======= -->
 <div class="single-post">
@@ -9,9 +17,33 @@
   <p><span class="firstcharacter"></span>{{techpost.prefix}}</p>
 
   <figure class="my-4">
-    <img src="{{techpost.image.url}}" width="800" style="margin-left:80px ;" alt="No Photo" class="img-fluid">
+    <img src="{{techpost.image.url}}" width="800"  alt="{{techpost.title}}" class="img-fluid">
   </figure>
   <p>{{techpost.body}}</p>
+  {% if techpost.image2.url  %}
+  <figure class="my-4">
+    <img src="{{techpost.image2.url}}" width="800"  alt="" class="img-fluid">
+  </figure>
+  {% endif %}
+  <br>
+  {% if techpost.body2  %}
+  <p>{{techpost.body2}}</p>
+  {% endif %}
+  <br>
+  {% if techpost.image3.url   %}
+    <figure class="my-4">
+      <img src="{{techpost.image3.url}}" width="800"  alt="" class="img-fluid">
+    </figure>
+  {% else %}
+
+  {% endif %}
+  {% load embed_video_tags %}
+  {% video techpost.video '368x315' %}
+
+
+  {% if techpost.body3  %}
+  <p>{{techpost.body3}}</p>
+  {% endif %}
 </div><!-- End Single Post Content -->
 
 {% endblock %}

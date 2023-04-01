@@ -4,16 +4,41 @@
 <html lang="en">
 
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2768553920905431"
+     crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJ36VWJSBS"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RJ36VWJSBS');
+    </script>
+
+<script>
+  setTimeout(function() {
+    document.querySelector('.ads').style.bottom = '20px';
+    document.querySelector('.ads').style.opacity = 1;
+  }, 9000);
+</script>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Nes Magazine</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+
+  <meta content="Explore the latest in entertainment, technology, and pop culture with Nes Magazine - your go-to source for the best of the Nes including news and sport headlines, weather, TV & radio highlights and much more from across the whole of Nes Magazine Online." name="description">
+  <meta content="Nes Magazine , Magazine , Nes Blog , Enes Jashari , Nes Magazine Django , Nes , Nes Magazine portal , Lastest news" name="keywords">
+  <meta http-equiv="refresh" content="">
+  <meta name="google-site-verification" content="1imMuNCESZLLqcB31E46pZpJZ1xadlP96C-mxI-AgEs" />
+
+    {% block linkshare %}{% endblock %}
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}" rel="icon">
+  <link href="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,6 +62,8 @@
   * Author: BootstrapMade.com
   * License: https:///bootstrapmade.com/license/
   =====================================================image.png=== -->
+
+  <meta name="referrer" content="no-referrer-when-downgrade" >
 </head>
 
 <body>
@@ -47,30 +74,32 @@
 
       <a href="{% url 'index' %}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{% static 'assets/img/logo.png' %}" alt=""> -->
-        <img src="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}"  width="100px" height="60px" alt="404" >
+        <img src="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}" alt="">
+        <!-- <img src="{% static 'assets\img\nes-low-resolution-logo-black-on-transparent-background.png' %}"  width="100px" height="60px" alt="404" > -->
         <!-- <h1 style="margin-left: -10px;" >Nes Magazine</h1> -->
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'index' %}">Blog</a></li>
+          <li><a href="{% url 'index' %}">Home</a></li>
           <li class="dropdown"><a href="{% url 'category' %}"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="{% url 'search' %}">Search Result</a></li>
+              
               <li><a href="{% url 'travel-category' %}">Culture</a></li>
               <li><a href="{% url 'showbiz-category' %}">Showbiz</a></li>
-              <li class="dropdown"><a href="{% url 'sport-category' %}"><span>Sport</span></a>
+              <li><a href="{% url 'sport-category' %}">Sports</a></li>
+              <!-- <li class="dropdown"><a href="{% url 'sport-category' %}">Sport</a> -->
+              <!-- <li class="dropdown"><a href="{% url 'sport-category' %}"><span>Sport</span></a> -->
                 <!-- <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
                   <li><a href="#">Deep Drop Down 3</a></li>
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
-                </ul> -->
-              </li>
+                </ul> 
+              </li> -->
 
-              <li><a href="{% url 'tech-category' %}">Tech</a></li>
+              <li><a href="{% url 'tech-category' %}">Technology</a></li>
               <li><a href="{% url 'travel-category' %}">Travel</a></li>
 
             </ul>
@@ -81,19 +110,20 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
-        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
-        <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+      <div class="position-relative"  >
 
-        <form id="post-form" method="POST" action="{% url 'search' %}" class="d-flex ml-auto">
+        <!-- <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+        <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
+        <a href="#" class="mx-2"><span class="bi-instagram"></span></a> -->
+
+        <a href="#" style="  margin-right: 190px !important;margin-top: 50px !important; " class="mx-5  js-search-open"><span class="bi-searchx"></span></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <form  id="post-form" method="POST" action="{% url 'search'  %}" class="d-flex mt-1">
           {% csrf_token %}
-          <input class="form-control me-2" id="searchquerry" type="search" name="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" id="searchquerry" type="search" name="search" placeholder="Search Nes" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        
-        <a href="#" class="mx-2 js-search-open"><span class="bi-searchx"></span></a>
-        <i class="bi bi-list mobile-nav-toggle"></i>
 
         <!-- ======= Search Form ======= -->
         <div class="search-form-wrap js-search-form-wrap">
@@ -158,7 +188,7 @@
               <p class="mb-4 d-block">{{post.prefix |capfirst}}</p>
               {% endfor %}
               <div class="d-flex align-items-center author">
-                <div class="photo"><img src="{% static 'assets/img/person-3.jpg' %}" alt="No img found 404 enes" class="img-fluid"></div>
+                <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="No img found 404 enes" class="img-fluid"></div>
                 <div class="name">
                   <h3 class="m-0 p-0">Enes Jashari</h3>
                 </div>
@@ -192,7 +222,7 @@
                   <div class="post-meta"><span class="date">{{sport.category}}</span> <span class="mx-1">&bullet;</span> <span>{{sport.created_at}}</span></div>
                   <h2><a href="{% url 'sport-single' sport.id  %}">{{sport.title |capfirst}}</a></h2>
                 </div>
-                {% endfor %}  
+                {% endfor %}
               </div>
 
               <!-- Trending Section -->
@@ -205,36 +235,36 @@
                       <a href="{% url 'showbiz-single' showbiz_post_nav_1.id %}">
                         <span class="number">1</span>
                         <h3>{{showbiz_post_nav_1.title}}</h3>
-                        <span class="author">Jane Cooper</span>
+                        <span class="author">Enes Jashari</span>
                       </a>
                     </li>
                     <li>
                       <a href="{% url 'showbiz-single' showbiz_post_nav_2.id %}">
                         <span class="number">2</span>
                         <h3>{{showbiz_post_nav_2.title}}</h3>
-                        <span class="author">Wade Warren</span>
+                        <span class="author">Enes Jashari</span>
                       </a>
                     </li>
                     <li>
                       <a href="{% url 'header-single' header_post_nav_1.id %}">
                         <span class="number">3</span>
                         <h3>{{header_post_nav_1.title}}</h3>
-                        <span class="author">Esther Howard</span>
+                        <span class="author">Enes Jashari</span>
                       </a>
                     </li>
-                    
+
                     <li>
                       <a href="{% url 'sport-single' sport_post_nav_1.id %}">
                         <span class="number">4</span>
                         <h3>{{sport_post_nav_1.title}}</h3>
-                        <span class="author">Cameron Williamson</span>
+                        <span class="author">Enes Jashari</span>
                       </a>
                     </li>
                     <li>
                       <a href="{% url 'sport-single' sport_post_nav_2.id %}">
                         <span class="number">5</span>
                         <h3>{{sport_post_nav_2.title}}</h3>
-                        <span class="author">Jenny Wilson</span>
+                        <span class="author">Enes Jashari</span>
                       </a>
                     </li>
                   </ul>
@@ -269,9 +299,9 @@
                 <h3><a href="{% url 'travel-single' travel_post_4_1.id %}">{{travel_post_4_1.title | capfirst}}</a></h3>
                 <p>{{travel_post_4_1.body | truncatewords:20 |capfirst}}</p>
                 <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="{% static 'assets/img/person-2.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="" class="img-fluid"></div>
                   <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
+                    <h3 class="m-0 p-0">Enes Jashari</h3>
                   </div>
                 </div>
               </div>
@@ -283,14 +313,14 @@
                   <a href="{% url 'travel-single' travel_post_4_2.id %}"><img src="{{travel_post_4_2.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_2.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_2.id %}">{{travel_post_4_2.title | capfirst}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
                   <p class="mb-4 d-block">{{travel_post_4_2.body| truncatewords:20 |capfirst}}</p>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_3.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_3.id %}">{{travel_post_4_3.title | capfirst}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
               </div>
               <div class="col-lg-8">
@@ -298,7 +328,7 @@
                   <a href="{% url 'travel-single' travel_post_4_4.id %}"><img src="{{travel_post_4_4.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{travel_post_4_4.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'travel-single' travel_post_4_4.id %}">{{travel_post_4_4.title | capfirst}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                   <p class="mb-4 d-block">{{travel_post_4_4.body| truncatewords:20 |capfirst}}</p>
                 </div>
               </div>
@@ -311,7 +341,7 @@
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{header.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'header-single' header.id  %}">{{header.title}}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
             {% endfor %}
 
@@ -319,7 +349,7 @@
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>{{showbiz.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz.id  %}">{{showbiz.title}}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
             {% endfor %}
 
@@ -352,9 +382,9 @@
                 <h3><a href="{% url 'showbiz-single' showbiz_post_3_1.id %}">{{showbiz_post_3_1.showbiz_post_3_1.title |capfirst }}</a></h3>
                 <p>{{showbiz_post_3_1.body | truncatewords:20 |capfirst}}</p>
                 <div class="d-flex align-items-center author">
-                  <div class="photo"><img src="{% static 'assets/img/person-4.jpg' %}" alt="" class="img-fluid"></div>
+                  <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="" class="img-fluid"></div>
                   <div class="name">
-                    <h3 class="m-0 p-0">Wade Warren</h3>
+                    <h3 class="m-0 p-0">Enes Jashari</h3>
                   </div>
                 </div>
               </div>
@@ -366,14 +396,14 @@
                   <a href="{% url 'showbiz-single' showbiz_post_3_2.id %}"><img src="{{showbiz_post_3_2.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_2.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_2.id %}">{{showbiz_post_3_2.title |capfirst }}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                   <p class="mb-4 d-block">{{showbiz_post_3_2.body| truncatewords:20 |capfirst }}</p>
                 </div>
 
                 <div class="post-entry-1">
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_4.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_4.id %}">{{showbiz_post_3_4.title |capfirst }}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
               </div>
               <div class="col-lg-8">
@@ -381,7 +411,7 @@
                   <a href="{% url 'showbiz-single' showbiz_post_3_3.id %}"><img src="{{showbiz_post_3_3.image.url}}" alt="" class="img-fluid"></a>
                   <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_3.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_3.id %}">{{showbiz_post_3_3.title |capfirst }}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson </span>
+                  <span class="author mb-3 d-block">Enes Jashari </span>
                   <p class="mb-4 d-block"> <a href="{% url 'showbiz-single' showbiz_post_3_3.id %}">{{showbiz_post_3_3.body | truncatewords:20 |capfirst}}</a></p>
                 </div>
               </div>
@@ -391,46 +421,48 @@
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_5.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_5.id %}">{{showbiz_post_3_5.title}}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_6.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_6.id %}">{{showbiz_post_3_6.title |capfirst }}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_7.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_7.id %}">{{showbiz_post_3_7.title |capfirst }}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_8.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_8.id %}">{{showbiz_post_3_8.title |capfirst }}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_9.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_9.id %}">{{showbiz_post_3_9.title |capfirst }}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date">Business</span> <span class="mx-1">&bullet;</span> <span>{{showbiz_post_3_10.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'showbiz-single' showbiz_post_3_10.id %}">{{showbiz_post_3_10.title |capfirst }}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
           </div>
         </div>
       </div>
     </section><!-- End Business Category Section -->
 
+  
+
     <!-- ======= Lifestyle Category Section ======= -->
     <section class="category-section">
-      <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">erson-9.jpg
 
         <div class="section-header d-flex justify-content-between align-items-center mb-5">
           <h2>Sport - Lifestyle</h2>
@@ -446,9 +478,9 @@
               <p class="mb-4 d-block">{{sport_post_1.body}}</p>
 
               <div class="d-flex align-items-center author">
-                <div class="photo"><img src="{% static 'assets/img/person-7.jpg' %}" alt="" class="img-fluid"></div>
+                <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="" class="img-fluid"></div>
                 <div class="name">
-                  <h3 class="m-0 p-0">Esther Howard</h3>
+                  <h3 class="m-0 p-0">Enes Jashari</h3>
                 </div>
               </div>
             </div>
@@ -456,13 +488,13 @@
             <div class="post-entry-1 border-bottom">
               <div class="post-meta"><span class="date"> 8 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_8.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_8.id %}">{{sport_post_8.title}}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
             <div class="post-entry-1">
               <div class="post-meta"><span class="date"> 9 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_9.created_at}}</span></div>
               <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_9.id %}">{{sport_post_9.title}}</a></h2>
-              <span class="author mb-3 d-block">Jenny Wilson</span>
+              <span class="author mb-3 d-block">Enes Jashari</span>
             </div>
 
           </div>
@@ -508,37 +540,37 @@
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date"> 10 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_10.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_10.id %}">{{sport_post_10.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date"> 11 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_11.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_11.id %}">{{sport_post_11.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date"> 12 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_12.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_12.id %}">{{sport_post_12.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date">13 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_13.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_13.id %}">{{sport_post_13.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date">14 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_14.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_14.id %}">{{sport_post_14.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
                 <div class="post-entry-1 border-bottom">
                   <div class="post-meta"><span class="date">15 Lifestyle</span> <span class="mx-1">&bullet;</span> <span>{{sport_post_15.created_at}}</span></div>
                   <h2 class="mb-2"><a href="{% url 'sport-single' sport_post_15.id %}">{{sport_post_15.title}}</a></h2>
-                  <span class="author mb-3 d-block">Jenny Wilson</span>
+                  <span class="author mb-3 d-block">Enes Jashari</span>
                 </div>
 
               </div>
@@ -551,7 +583,82 @@
 
   </main><!-- End #main -->
 {% endblock %}
+  <!-- Advertisment Section -->
+    <!-- https://community.thriveglobal.com/wp-content/uploads/2020/07/Modren-Tech.jpg -->
+  <!-- https://gjstatic.blob.core.windows.net/fix/lablogo.png -->
+  <!-- https://community.thriveglobal.com/wp-content/uploads/2020/07/Modren-Tech.jpg -->
+  <section>
+    <div>
+      <div class="adsh" style="width: 100%; height: 90px; max-width: 728px;  
+          background-image: url(https://www.psdgraphics.com/file/728x90.jpg); 
+          background-size: cover; background-position: center center; position: fixed; 
+          bottom: -400px; left: 50%; transform: translateX(-50%); animation: floatUp 2s ease-out forwards;cursor: pointer;">
+        <div style=" background-color: black; opacity: 0; width: 100%; height: 100%;" onclick="window.open('https://enesjashari.github.io/#contact', '_blank'); this.style.borderColor = 'green'; this.style.boxShadow = '4px 4px 10px rgba(0,0,0,0.7)';"></div>
+        <button style="position: absolute; top: 0; right: 0; padding: 5px; background-color: white; border: none; cursor: pointer;" onclick="document.querySelector('.adsh').remove();">X</button>
+        <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center;">  </h1>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    @keyframes floatUp {
+      from {
+        bottom: -200px;
+        opacity: 0;
+      }
+      to {
+        bottom: 20px;
+        opacity: 1;
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .adsh {
+        max-width: 300px;
+      }
+    }
+  </style>
 
+<section>
+  <div>
+    <div class="adsv" style="width: 100%; height: 500px; max-width: 120px;
+      background-image: url(https://www.psdgraphics.com/file/160x600.jpg);
+      background-size: cover; background-position: center center; position: fixed;
+      bottom: -400px; left: 7%; transform: translateX(-50%);
+      animation: floatUp 2s ease-out forwards;cursor: pointer;">
+      <div style=" background-color: black; opacity: 0; width: 100%; height: 100%;"
+        onclick="window.open('https://enesjashari.github.io/#contact', '_blank'); this.style.borderColor = 'green';
+        this.style.boxShadow = '4px 4px 10px rgba(0,0,0,0.7)';"></div>
+      <button style="position: absolute; top: 0; right: 0; padding: 5px; background-color: white;
+        border: none; cursor: pointer;" onclick="document.querySelector('.adsv').remove();">X</button>
+      <h1 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        color: white; text-align: center;"></h1>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes floatUp {
+    from {
+      bottom: -200px;
+      opacity: 0;
+    }
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .adsv {
+      max-width: 300px;
+      background-image: url(https://www.psdgraphics.com/file/120x240.jpg);
+      height: 240px;
+    }
+  }
+</style>
+
+   <!-- End advertisment Section -->
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
 
@@ -561,14 +668,21 @@
         <div class="row g-5">
           <div class="col-lg-4">
             <h3 class="footer-heading">About Nes Magazine</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
+            <p>Nes Magazine is an online portal/magazine founded in December 2022. The idea for Nes Magazine began to take shape in February 2022, and it was founded with the goal of providing the latest news, reviews, and information about the AI  updates for community. The magazine is dedicated to covering the latest advancements and trends in the field of Media & Technology. Nes Magazine aims to be a valuable resource for AI enthusiasts, researchers and professionals, providing high-quality content, expert analysis, and in-depth coverage of the most important issues and developments in the field. It is a platform for community to stay informed, connected and engaged with the latest developments in the fields.</p>
             <p><a href="{% url 'about-us' %}" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
               <li><a href="{% url 'index' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="{% url 'category' %}"><i class="bi bi-chevron-right"></i> Categories</a></li>
+              <li><i class="bi bi-chevron-right"></i> Categories</li>
+              <ul>
+                <li ><a href="{% url 'travel-category' %}">Culture</a></li>
+                <li ><a href="{% url 'showbiz-category' %}">Showbiz</a></li>
+                <li ><a href="{% url 'sport-category' %}"><span>Sport</span></a>
+                <li><a href="{% url 'tech-category' %}">Technology</a></li>
+                <li><a href="{% url 'travel-category' %}">Travel</a></li>
+              </ul>             
               <li><a href="{% url 'about-us' %}"><i class="bi bi-chevron-right"></i> About us</a></li>
               <li><a href="{% url 'contact' %}"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
@@ -617,7 +731,7 @@
         <div class="row justify-content-between">
           <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
             <div class="copyright">
-              © Copyright <strong><span>Nes Magazine</span></strong>. All Rights Reserved <a style="color: rgb(255, 255, 255); text-decoration: underline; " href="https://enesjashari.github.io/">Enes Jashari</a>
+              © Copyright <strong><span>Nes Magazine</span></strong>. All Rights Reserved by <a style="color: rgb(255, 255, 255); text-decoration: underline; " href="https://enesjashari.github.io/">Enes Jashari</a>
             </div>
 
             <div class="credits">
@@ -625,18 +739,18 @@
               <!-- You can delete the links only if you purchased the pro version. -->
               <!-- Licensing information: https://bootstrapmade.com/license/ -->
               <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Collaborated with <a href="https://bootstrapmade.com/">BootstrapMade</a>
             </div>
 
           </div>
 
           <div class="col-md-6">
             <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              <!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> -->
+              <a href="https://www.facebook.com/enes.jashari.98/" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/enes.jasharii/" class="instagram"><i class="bi bi-instagram"></i></a>
+              <!-- <a href="#" class="google-plus"><i class="bi bi-skype"></i></a> -->
+              <a href="https://www.linkedin.com/in/enes-jashari-a4815b245" class="linkedin"><i class="bi bi-linkedin"></i></a>
             </div>
 
           </div>
@@ -648,7 +762,7 @@
 
   </footer>
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#main"    class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -657,7 +771,51 @@
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 
+  <!-- Advertisment Script -->
+  <script>
+    setTimeout(function() {
+      document.querySelector('.adsh').style.bottom = '20px';
+      document.querySelector('.adsh').style.opacity = 1;
+    }, 9000);
+  </script>
+  
+<script>
+  setTimeout(function() {
+    document.querySelector('.adsv').style.bottom = '20px';
+    document.querySelector('.adsv').style.opacity = 1;
+  }, 9000);
+</script>
+<script>
+const adsv = document.querySelector('.adsv');
 
+// Check if the viewport width is less than 768 pixels
+if (window.innerWidth < 768) {
+  // Change the background image URL
+  adsv.style.backgroundImage = 'url("https://www.psdgraphics.com/file/120x240.jpg")';
+
+
+  // Change the height and width
+  adsv.style.height = '240px';
+  adsv.style.width = '120px';
+  adsv.style.left = '19%';
+  adsv.style.top = '10%'; // Move 100px higher (400px - 100px)
+}
+</script>
+  <!-- End advertisment Script -->
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/639f1670b0d6371309d5013e/1gkimvano';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
