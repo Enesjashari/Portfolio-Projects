@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CRUD Template</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 36px;
+      font-weight: 600;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
+      color: #555;
+      border-bottom: 1px solid #ddd;
+    }
+
+    td {
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* Form */
+    .form-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      margin-bottom: 30px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .form-container input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      transition: border-color 0.3s ease;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .form-container input[type="text"]:focus {
+      border-color: #4CAF50;
+    }
+
+    .form-container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    /* Success Message */
+    .success-message {
+      position: relative;
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border-radius: 6px;
+      animation: slide-in 0.8s ease-in-out;
+    }
+
+    .success-message:before {
+      content: "\f058";
+      font-family: "Font Awesome 5 Free";
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .success-message h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-left: 50px;
+    }
+
+    /* Animations */
+    @keyframes slide-in {
+      0% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Button Styles */
+    .edit-button,
+    .delete-button {
+      display: inline-block;
+      padding: 8px 12px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .edit-button:hover,
+    .delete-button:hover {
+      background-color: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .form-container {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% if messages %}
+    <div class="success-message">
+      <h3>Updated Successfully!</h3>
+    </div>
+    {% endif %}
+
+    <h1>CRUD Template</h1>
+
+    <!-- Read (Table) -->
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+      {% for i in posts %}
+      <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name }}</td>
+        <td>
+          <a href="{% url 'edit' i.id %}"><button class="edit-button">Edit</button></a>
+          <a href="{% url 'delete' i.id  %}"><button class="delete-button">Delete</button></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <!-- Create (Form) -->
+    <div class="form-container">
+      <h2>Create</h2>
+      <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="create1" name="create1" placeholder="Enter name">
+        <input type="submit" value="Create">
+      </form>
+    </div>
+  </div>
+</body>
+</html>

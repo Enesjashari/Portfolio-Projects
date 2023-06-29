@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+    
+        table {
+          width: 100%;
+          border-collapse: collapse;
+        }
+    
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+    
+        tr:hover {
+          background-color: #f5f5f5;
+        }
+    
+        .form-container {
+          max-width: 300px;
+          margin: 20px auto;
+          padding: 16px;
+          background-color: #f2f2f2;
+          border-radius: 5px;
+        }
+    
+        input[type=text], input[type=submit] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+    
+        input[type=submit] {
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+    
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+        .message-box {
+  position: relative;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid #4caf50;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  animation: slide-in 0.5s forwards;
+}
+
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.success-message {
+  border-color: #4caf50;
+  background-color: #dff0d8;
+}
+
+.message-content {
+  padding: 10px;
+}
+
+.messages {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.messages li {
+  margin-bottom: 10px;
+  color: #4caf50;
+  text-align: center  ;
+}
+
+      </style>
+</head>
+<body>
+
+  {% if messages %}
+  <div class="message-box success-message">
+    <div class="message-content">
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}
+
+      <!-- Create (Form) -->
+  <h2>Create</h2>
+  <div class="form-container">
+    <form method="post" >
+      {% csrf_token %}
+      
+      <label for="name">Name:</label>
+      <input type="text" id="edit1" name="edit1"  value="{{input12}}" placeholder="input12">
+      <input type="submit" value="Update">
+    </form>
+    <a href="{% url 'index' %}"><input type="submit" value="Return to Home"></a>
+  </div>
+
+    
+</body>
+</html>
