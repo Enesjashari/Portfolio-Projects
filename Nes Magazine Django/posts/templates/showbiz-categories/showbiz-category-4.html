@@ -1,0 +1,79 @@
+{% extends 'category.html' %}
+{% load static %}
+
+
+{% block linkshare %}
+    <meta property="og:title" content="Nes Showbiz - Get the Inside Scoop on Showbiz with Nes Magazine: Your Go-To Source for the Latest Entertainment News">
+    <meta property="og:description" content="Get exclusive access to the world of showbiz with Nes Magazine - your ultimate source for the latest entertainment news, celebrity gossip, and insider insights. From breaking stories to exclusive interviews, we've got you covered on all things showbiz. Stay in the know with our comprehensive coverage of movies, TV shows, theater, and more.">
+   <meta content="Get exclusive access to the world of showbiz with Nes Magazine - your ultimate source for the latest entertainment news, celebrity gossip, and insider insights. From breaking stories to exclusive interviews, we've got you covered on all things showbiz. Stay in the know with our comprehensive coverage of movies, TV shows, theater, and more." name="description">
+{% endblock %}
+
+
+{% block fromcategory %}
+
+<main id="main">
+    <section>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-9" data-aos="fade-up">
+            <h3 class="category-title">Category: Showbiz</h3>
+            
+            {% for i in showbiz_post_category %}
+            <div class="d-md-flex post-entry-2 half">
+              <a href="{% url 'showbiz-single' i.id %}" class="me-4 thumbnail">
+                <img src="{{i.image.url}}" alt="{{i.title}}" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>{{i.created_at}}</span></div>
+                <h3><a href="{% url 'showbiz-single' i.id %}">{{i.title}}</a></h3>
+                <p>{{i.body | truncatewords:90 }}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'assets/img/person-2.jpg' %}" alt="Nes Magazine" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Enes Jashari</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            
+            {% for i in showbiz_post_category_header %}
+            <div class="d-md-flex post-entry-2 half">
+              <a href="{% url 'header-single' i.id  %}" class="me-4 thumbnail">
+                <img src="{{i.image.url}}" alt="{{i.title}}" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
+                <h3><a href="{% url 'header-single' i.id  %}">{{i.title}}</a></h3>
+                <p>{{i.body | truncatewords:90  }}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="Nes Magazine" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Enes Jashari</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="text-start py-4">
+              <div class="custom-pagination">
+                <a href="{% url 'showbiz-category-3' %}" class="prev">Prevous</a>
+                <a href="{% url 'showbiz-category' %}" >1</a>
+                <a href="{% url 'showbiz-category-2' %}">2</a>
+                <a href="{% url 'showbiz-category-3' %}">3</a>
+                <a href="{% url 'showbiz-category-4' %}" class="active">4</a>
+                <a href="{% url 'showbiz-category-5' %}">5</a>
+                <a href="{% url 'showbiz-category-5' %}" class="next">Next</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            {% include 'nav-bar-posts.html' %}
+
+
+
+{% endblock %}

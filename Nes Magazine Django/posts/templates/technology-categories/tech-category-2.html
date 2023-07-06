@@ -1,0 +1,61 @@
+{% extends 'category.html' %}
+{% load static %}
+
+
+{% block linkshare %}
+    <meta property="og:title" content="Nes Tech -Experience the Future with Nes Technology: Your Ultimate Guide to AI and ML Insights, News, and Breakthroughs on Tech Today Magazine">
+    <meta property="og:description" content="Stay in the know with Nes Technology - your go-to source for the latest tech news, insights, and breakthroughs. From cutting-edge gadgets to game-changing software and AI, we cover it all. Get ahead in the world of technology with our expert analysis and exclusive interviews with industry leaders.">
+   <meta content="Stay in the know with Nes Technology - your go-to source for the latest tech news, insights, and breakthroughs. From cutting-edge gadgets to game-changing software and AI, we cover it all. Get ahead in the world of technology with our expert analysis and exclusive interviews with industry leaders." name="description">
+{% endblock %}
+
+
+
+{% block fromcategory %}
+
+<main id="main">
+    <section>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-9" data-aos="fade-up">
+            <h3 class="category-title">Category: Technology</h3>
+
+            {% for i in tech_post_category %}
+            <div class="d-md-flex post-entry-2 half">
+              <a href="{% url 'tech-single' i.id %}" class="me-4 thumbnail">
+                <img src="{{i.image.url}}" alt="" class="img-fluid">
+              </a>
+              <div>
+                <div class="post-meta"><span class="date">{{i.category}}</span> <span class="mx-1">&bullet;</span> <span>{{i.created_at}}</span></div>
+                <h3><a href="{% url 'tech-single' i.id %}">{{i.title}}</a></h3>
+                <p>{{i.body | truncatewords:90 }}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="{% static 'assets/img/blank-profile-picture.png' %}" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">Enes Jashari</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+
+            <div class="text-start py-4">
+              <div class="custom-pagination">
+                <a href="{% url 'tech-category' %}" class="prev">Prevous</a>
+                <a href="{% url 'tech-category' %}" >1</a>
+                <a href="{% url 'tech-category-2' %}"class="active">2</a>
+                <a href="{% url 'tech-category-3' %}">3</a>
+                <a href="{% url 'tech-category-4' %}">4</a>
+                <a href="{% url 'tech-category-5' %}">5</a>
+                <a href="{% url 'tech-category-3' %}" class="next">Next</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            {% include 'nav-bar-posts.html' %}
+
+
+
+{% endblock %}
