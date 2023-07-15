@@ -1,0 +1,29 @@
+{% load static %}
+
+<!-- Emri i skedarit: generate.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate WiFi QR Code</title>
+  <link rel="stylesheet" href="{% static 'assets/css/generate.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1>Generate WiFi QR Code</h1>
+    <form method="POST" action="{% url 'generate_wifi_qrcode' %}">
+      {% csrf_token %}
+      <div>
+        <label for="ssid">SSID:</label>
+        <input type="text" id="ssid" name="ssid" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+      </div>
+      <div>
+        <button type="submit">Generate QR Code</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

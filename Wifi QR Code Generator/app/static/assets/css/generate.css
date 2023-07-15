@@ -1,0 +1,49 @@
+body {
+    background-color: #eaf2f8; /* Light blue background */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-in-out;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 20px;
+    animation: slide-in 1s ease-in-out;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px; /* Add margin between input fields */
+  }
+  #ssid{
+    margin-left: 30px;
+  }
+  button[type="submit"] {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-left: 50px;
+    margin-top: 10px; /* Add margin above the submit button */
+  }
+
+  button[type="submit"]:hover {
+    background-color: #2980b9;
+  }
